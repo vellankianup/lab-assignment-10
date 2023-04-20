@@ -52,19 +52,17 @@ int main(void) {
     // Initialize the Trie data structure
     Trie *trie = NULL;
 
+
+    char *pWords[] = {"notaword", "ucf", "no", "note", "corg"};
     // Read the number of words in the dictionary
-    int numWords;
-    scanf("%d", &numWords);
 
     // Parse each line and insert each word into the Trie
-    for (int i = 0; i < numWords; i++) {
-        char word[100];
-        scanf("%s", word);
-        insert(&trie, word);
+    for (int i = 0; i < 5; i++) {
+        insert(&trie, pWords[i]);
     }
 
     // Print the number of occurrences of each word in the dictionary
-    char *pWords[] = {"notaword", "ucf", "no", "note", "corg"};
+    
     for (int i = 0; i < 5; i++) {
         printf("%s : %d\n", pWords[i], numberOfOccurrences(trie, pWords[i]));
     }
